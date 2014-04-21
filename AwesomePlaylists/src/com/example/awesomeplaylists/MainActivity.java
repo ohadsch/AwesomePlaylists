@@ -13,6 +13,8 @@ import android.os.Build;
 
 // moo
 
+// moo2
+
 public class MainActivity extends Activity {
 
 	@Override
