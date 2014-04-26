@@ -1,15 +1,11 @@
 package com.example.awesomeplaylists;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
-// moo
-
-// moo2
-
-// moo3
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -38,4 +34,15 @@ public class MainActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+			
+	//TODO temporary - remove code
+	public void addPlaylistClicked(View view) {
+		Intent intent = new Intent(this, AddEditPlaylistActivity.class);					
+		startActivity(intent);	
+	}	
+	
+	public void playMusicClicked(View view) {
+		Intent intent = new Intent(this, PlayItActivity.class);					
+		startActivity(intent);	
+	}	
 }
