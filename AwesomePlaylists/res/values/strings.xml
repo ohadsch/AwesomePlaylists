@@ -12,5 +12,12 @@
     <color name="white">#ffffff</color>
 
     <string name="title_activity_play_it">PlayItActivity</string>
+    <string name="awesomeplaylists_">AwesomePlaylists!</string>
+    <string name="library">Library</string>
+    <string name="play_music">Play Music</string>
+    <string name="settings">Settings</string>
+    <string name="playlists">Playlists</string>
+    <string name="add_playlist_temporary_">add playlist (temporary)</string>
+    <string name="title_activity_user_settings">UserSettingsActivity</string>
 
 </resources>

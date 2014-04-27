@@ -1,45 +1,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:layout_gravity="center_horizontal"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="30dp" >
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AwesomePlaylists!"
+        android:text="@string/awesomeplaylists_"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Library" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/library" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Playlists" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/playlists" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:text="Play Music"
+        android:text="@string/play_music"
         android:onClick="playMusicClicked" />
     
     <Button
         android:id="@+id/btnSettings"
         android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:text="Settings" />
+        android:text="@string/settings"
+        android:onClick="settingsClicked" />
     
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="add playlist (temporary)"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/add_playlist_temporary_"
         android:onClick="addPlaylistClicked" />
 
 </LinearLayout>

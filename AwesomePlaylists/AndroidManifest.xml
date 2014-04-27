@@ -42,6 +42,14 @@
             android:name="com.example.awesomeplaylists.PlayItActivity"
             android:label="@string/title_activity_play_it" >
         </activity>
+        <activity
+            android:name="com.example.awesomeplaylists.UserSettingsActivity"
+            android:label="@string/title_activity_user_settings"
+            android:parentActivityName="com.example.awesomeplaylists.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.awesomeplaylists.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
