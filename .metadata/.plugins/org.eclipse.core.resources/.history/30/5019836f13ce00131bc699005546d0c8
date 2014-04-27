@@ -1,0 +1,146 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="30dp" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/library_title"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/library_title"        
+	        android:textSize="@dimen/caption"
+	        android:textColor="@android:color/white"
+	        android:textStyle="bold"
+			android:layout_weight=".50" />
+        <ImageButton
+            android:id="@+id/add_song_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:src="@android:drawable/ic_menu_add" />
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+			android:layout_weight=".50">
+        
+	        <TextView
+	            android:id="@+id/song_name_1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/song_name_template"        
+		        android:textSize="@dimen/medium_text"
+		        android:textColor="@android:color/white" />
+	        
+	        <TextView
+	            android:id="@+id/song_title_1"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/song_artist_template"        
+		        android:textSize="@dimen/small_text"
+		        android:textColor="@android:color/darker_gray" />
+        
+        </LinearLayout>
+        
+        <ImageButton
+            android:id="@+id/delete_song_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:src="@android:drawable/ic_menu_delete"
+            android:contentDescription="Remove this song" />
+    </LinearLayout>
+    
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+			android:layout_weight=".50">
+        
+	        <TextView
+	            android:id="@+id/song_name_2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/song_name_template"        
+		        android:textSize="@dimen/medium_text"
+		        android:textColor="@android:color/white" />
+	        
+	        <TextView
+	            android:id="@+id/song_title_2"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/song_artist_template"        
+		        android:textSize="@dimen/small_text"
+		        android:textColor="@android:color/darker_gray" />
+        
+        </LinearLayout>
+        
+        <ImageButton
+            android:id="@+id/delete_song_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:src="@android:drawable/ic_menu_delete"
+            android:contentDescription="@string/delete_song_description" />
+    </LinearLayout>
+    
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+			android:layout_weight=".50">
+        
+	        <TextView
+	            android:id="@+id/song_name_3"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/song_name_template"        
+		        android:textSize="@dimen/medium_text"
+		        android:textColor="@android:color/white" />
+	        
+	        <TextView
+	            android:id="@+id/song_title_3"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:text="@string/song_artist_template"        
+		        android:textSize="@dimen/small_text"
+		        android:textColor="@android:color/darker_gray" />
+        
+        </LinearLayout>
+        
+        <ImageButton
+            android:id="@+id/delete_song_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:src="@android:drawable/ic_menu_delete"
+            android:contentDescription="@string/delete_song_description"/>
+    </LinearLayout>
+	
+</LinearLayout>

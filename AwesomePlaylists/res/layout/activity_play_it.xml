@@ -7,7 +7,7 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"    
 	    android:id="@+id/playItLayout"
-	    android:background="@color/black" >
+	    android:background="@android:color/black" >
 	    	 
 		 <TextView
 		    android:id="@+id/songNameText"
@@ -15,7 +15,7 @@
 	        android:layout_height="wrap_content"
 	        android:text=""                
 	        android:textSize="@dimen/caption"
-	        android:textColor="@color/white"
+	        android:textColor="@android:color/white"
 	        android:textStyle="bold"
 	        android:gravity="center_horizontal"
 	        android:layout_centerHorizontal="true"
@@ -31,7 +31,7 @@
 	        android:layout_height="wrap_content"
 	        android:text=""                
 	        android:textSize="@dimen/big_text"
-	        android:textColor="@color/white"
+	        android:textColor="@android:color/white"
 	        android:gravity="center_horizontal"
 	        android:layout_above="@+id/songNameText"
 	        android:layout_centerHorizontal="true"	              
