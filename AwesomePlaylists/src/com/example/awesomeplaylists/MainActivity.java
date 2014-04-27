@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, PlayItActivity.class);					
 		startActivity(intent);	
 	}	
-	
+
 	public void settingsClicked(View view) {
 		Intent intent = new Intent(this, UserSettingsActivity.class);					
 		startActivity(intent);	

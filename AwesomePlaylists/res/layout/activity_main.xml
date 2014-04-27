@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:text="@string/play_music"
+        android:text="@string/play_music"        
         android:onClick="playMusicClicked" />
     
     <Button
@@ -51,7 +51,7 @@
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"        
         android:text="@string/add_playlist_temporary_"
         android:onClick="addPlaylistClicked" />
 
