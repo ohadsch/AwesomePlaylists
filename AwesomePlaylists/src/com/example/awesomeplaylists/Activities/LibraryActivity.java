@@ -1,5 +1,12 @@
-package com.example.awesomeplaylists;
+package com.example.awesomeplaylists.Activities;
 
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.Adapters.LibrarySongsArrayAdapter;
+import com.example.awesomeplaylists.BL.GenericSong;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
+import com.example.awesomeplaylists.R.menu;
 
 import android.app.ListActivity;
 import android.database.Cursor;
@@ -18,7 +25,7 @@ import android.widget.ListView;
 
 public class LibraryActivity extends ListActivity {
 	
-	private static GenericSongClass[] songs = {};
+	private static GenericSong[] songs = {};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -118,11 +125,11 @@ public class LibraryActivity extends ListActivity {
             cursor = getBaseContext().getContentResolver().query(uri,
                     projection, selection, null, sortOrder);
             if (cursor != null) {
-                songs = new GenericSongClass[cursor.getCount()];
+                songs = new GenericSong[cursor.getCount()];
                 int i = 0;
                 cursor.moveToFirst();                       
                 while (!cursor.isAfterLast()) { 
-                	GenericSongClass GSC = new GenericSongClass();
+                	GenericSong GSC = new GenericSong();
                     GSC.songTitle = cursor.getString(0);
                     GSC.songArtist = cursor.getString(1);
                     songs[i++] = GSC;

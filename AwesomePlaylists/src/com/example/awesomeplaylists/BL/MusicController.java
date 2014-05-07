@@ -1,4 +1,4 @@
-package com.example.awesomeplaylists;
+package com.example.awesomeplaylists.BL;
 
 import android.content.Context;
 import android.util.AttributeSet;

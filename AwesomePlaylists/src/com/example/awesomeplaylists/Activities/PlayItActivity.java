@@ -1,4 +1,10 @@
-package com.example.awesomeplaylists;
+package com.example.awesomeplaylists.Activities;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.BL.MusicController;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
+import com.example.awesomeplaylists.R.menu;
 
 import android.app.Activity;
 import android.os.Bundle;

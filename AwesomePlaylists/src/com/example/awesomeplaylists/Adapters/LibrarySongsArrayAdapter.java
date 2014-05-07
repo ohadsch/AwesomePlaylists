@@ -1,6 +1,11 @@
-package com.example.awesomeplaylists;
+package com.example.awesomeplaylists.Adapters;
 
 import java.util.Random;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.BL.GenericSong;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,12 +17,12 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class LibrarySongsArrayAdapter extends ArrayAdapter<GenericSongClass> {
+public class LibrarySongsArrayAdapter extends ArrayAdapter<GenericSong> {
 
 	private final Context context;
-	private final GenericSongClass[] values;
+	private final GenericSong[] values;
 	
-	public LibrarySongsArrayAdapter(Context context, GenericSongClass[] values) {
+	public LibrarySongsArrayAdapter(Context context, GenericSong[] values) {
 	    super(context, R.layout.library_row_layout, values);
 	    this.context = context;
 	    this.values = values;

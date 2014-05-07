@@ -1,4 +1,9 @@
-package com.example.awesomeplaylists;
+package com.example.awesomeplaylists.Activities;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
+import com.example.awesomeplaylists.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -57,7 +62,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void goToSettings(View view){
-		Intent intent = new Intent(this,SettingsActivity.class);
+		Intent intent = new Intent(this,UserSettingsActivity.class);
 		startActivity(intent);
 	}
 }

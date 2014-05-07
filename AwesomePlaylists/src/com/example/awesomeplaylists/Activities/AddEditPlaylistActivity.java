@@ -1,4 +1,10 @@
-package com.example.awesomeplaylists;
+package com.example.awesomeplaylists.Activities;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.BL.GenericPlaylist;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
+import com.example.awesomeplaylists.R.menu;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -50,7 +56,7 @@ public class AddEditPlaylistActivity extends Activity {
 	
 	private void LoadExistingPlaylist(int playlistId) {
 		if (playlistId != -1) {
-			GenericPlaylistClass currPlaylist = PlaylistsActivity.playlists.get(playlistId);
+			GenericPlaylist currPlaylist = PlaylistsActivity.playlists.get(playlistId);
 			
 			findViewById(R.id.add_edit_main_layout).setTag(playlistId);
 			
@@ -84,14 +90,14 @@ public class AddEditPlaylistActivity extends Activity {
 	}
 
 	public void savePlaylist(View view) {
-		GenericPlaylistClass currPlaylist;
+		GenericPlaylist currPlaylist;
 		Object playlistIdObj = ((View) findViewById(R.id.add_edit_main_layout)).getTag();
 		int playlistId = -1;
 		if (playlistIdObj != null) {
 			playlistId = (Integer) playlistIdObj;
 			currPlaylist = PlaylistsActivity.playlists.get(playlistId);
 		} else {
-			currPlaylist = new GenericPlaylistClass();
+			currPlaylist = new GenericPlaylist();
 		}
 				
 		TextView textPlaylistName = (TextView) findViewById(R.id.add_edit_name_input);

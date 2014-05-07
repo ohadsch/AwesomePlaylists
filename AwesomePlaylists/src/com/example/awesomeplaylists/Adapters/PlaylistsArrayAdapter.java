@@ -1,6 +1,11 @@
-package com.example.awesomeplaylists;
+package com.example.awesomeplaylists.Adapters;
 
 import java.util.ArrayList;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.BL.GenericPlaylist;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,12 +15,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PlaylistsArrayAdapter extends ArrayAdapter<GenericPlaylistClass> {
+public class PlaylistsArrayAdapter extends ArrayAdapter<GenericPlaylist> {
 
 	private final Context context;
-	private final ArrayList<GenericPlaylistClass> values;
+	private final ArrayList<GenericPlaylist> values;
 	
-	public PlaylistsArrayAdapter(Context context, ArrayList<GenericPlaylistClass> values) {
+	public PlaylistsArrayAdapter(Context context, ArrayList<GenericPlaylist> values) {
 	    super(context, R.layout.playlists_row_layout, values);
 	    this.context = context;
 	    this.values = values;

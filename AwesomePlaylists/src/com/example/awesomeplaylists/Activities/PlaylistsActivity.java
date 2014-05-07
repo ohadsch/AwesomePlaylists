@@ -1,7 +1,14 @@
-package com.example.awesomeplaylists;
+package com.example.awesomeplaylists.Activities;
 
 
 import java.util.ArrayList;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.Adapters.PlaylistsArrayAdapter;
+import com.example.awesomeplaylists.BL.GenericPlaylist;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
+import com.example.awesomeplaylists.R.menu;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -12,7 +19,7 @@ import android.view.View;
 
 public class PlaylistsActivity extends ListActivity {
 	
-	public static ArrayList<GenericPlaylistClass> playlists = new ArrayList<GenericPlaylistClass>();
+	public static ArrayList<GenericPlaylist> playlists = new ArrayList<GenericPlaylist>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +57,16 @@ public class PlaylistsActivity extends ListActivity {
 		
 	private static void LoadDummyPlaylists() {
 		playlists.add(
-				new GenericPlaylistClass("Running in gym", false, true, false, 
+				new GenericPlaylist("Running in gym", false, true, false, 
 						true, 1));
 		playlists.add(
-				new GenericPlaylistClass("Riding a bus", false, false, true, 
+				new GenericPlaylist("Riding a bus", false, false, true, 
 						true, 2));
 		playlists.add(
-				new GenericPlaylistClass("Driving", true, true, false, 
+				new GenericPlaylist("Driving", true, true, false, 
 						false, 0));
 		playlists.add(
-				new GenericPlaylistClass("Studying...", true, false, false, 
+				new GenericPlaylist("Studying...", true, false, false, 
 						false, 1));
     }
 	
