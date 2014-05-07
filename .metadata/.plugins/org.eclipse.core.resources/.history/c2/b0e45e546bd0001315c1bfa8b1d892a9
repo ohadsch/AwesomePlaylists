@@ -1,0 +1,94 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black" >
+
+<LinearLayout
+    android:id="@+id/playlists_main_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="30dp" >
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/playlists_title"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:text="@string/playlists_title"        
+	        android:textSize="@dimen/caption"
+	        android:textColor="@android:color/white"
+	        android:textStyle="bold"
+			android:layout_weight=".50" />
+        
+        <ImageButton
+            android:id="@+id/add_playlist_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".50"
+            android:src="@android:drawable/ic_menu_add"
+            android:background="@android:color/black"
+            android:contentDescription="@string/add_playlist_description" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".50" >
+        
+        
+         <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+	        
+	        <TextView
+	            android:id="@+id/playlist_name"
+	            android:layout_width="160dp"
+	            android:layout_height="wrap_content"
+	            android:textColor="@android:color/white"
+	            android:textSize="@dimen/big_text"
+	            android:layout_marginTop="12dp" />
+	        
+	        <ImageButton
+	            android:id="@+id/edit_playlist"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight=".20"
+	            android:src="@android:drawable/ic_menu_edit"
+	            android:contentDescription="@string/edit_playlist_description" />
+	        
+	        <ImageButton
+	            android:id="@+id/share_playlist"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight=".20"
+	            android:src="@android:drawable/ic_menu_share"
+	            android:contentDescription="@string/share_playlist_description" />
+	        
+	        <ImageButton
+	            android:id="@+id/delete_playlist"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_weight=".20"
+	            android:src="@android:drawable/ic_menu_delete"
+	            android:contentDescription="@string/delete_playlist_description" />
+	    </LinearLayout>
+	    
+	    <View
+		    android:layout_width="fill_parent"
+		    android:layout_height="1dp"
+		    android:background="@android:color/holo_blue_light"/>
+    
+    
+    </ListView>
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,81 @@
+package com.example.awesomeplaylists;
+
+
+import java.util.ArrayList;
+
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class PlaylistsActivity extends ListActivity {
+	
+	private static ArrayList<GenericPlaylistClass> playlists = new ArrayList<GenericPlaylistClass>();
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_playlists);
+		
+		LoadDummyPlaylists();
+		
+		PlaylistsArrayAdapter adapter = 
+				new PlaylistsArrayAdapter(this, playlists);
+	    setListAdapter(adapter);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.library_activity2, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+		
+	private void LoadDummyPlaylists() {
+		playlists.add(
+				new GenericPlaylistClass("Running in gym", false, true, false, 
+						true, 1));
+		playlists.add(
+				new GenericPlaylistClass("Riding a bus", false, false, true, 
+						true, 2));
+		playlists.add(
+				new GenericPlaylistClass("Driving", true, true, false, 
+						false, 0));
+		playlists.add(
+				new GenericPlaylistClass("Studying...", true, false, false, 
+						false, 1));
+    }
+	
+	public class GenericPlaylistClass {
+		String playlistName;
+		Boolean isClassic;
+		Boolean isElectronic;
+		Boolean isRap;
+		Boolean isHiphop;
+		int loudness = 2; // 0 = quiet, 1 = low, 2 = both
+		
+		public GenericPlaylistClass(String playlistName, Boolean isClassic,
+							   Boolean isElectronic, Boolean isRap,
+							   Boolean isHiphop, int loudness) {
+			this.playlistName = playlistName;
+			this.isClassic = isClassic;
+			this.isElectronic = isElectronic;
+			this.isRap = isRap;
+			this.isHiphop = isHiphop;
+			this.loudness = loudness;
+		}
+	}
+}

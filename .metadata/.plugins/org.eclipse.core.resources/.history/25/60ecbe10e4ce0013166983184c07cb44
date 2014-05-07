@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AwesomePlaylists</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_library">LibraryActivity</string>
+    <string name="title_activity_playlists">PlaylistsActivity</string>
+    <string name="title_activity_play_it">PlayItActivity</string>
+    <string name="title_activity_Settings">SettingsActivity</string>
+    <string name="title_activity_add_edit_playlist">AddEditPlaylistActivity</string>
+   
+    <!--  Main Activity -->
+    <string name="">AwesomePlaylists!</string>
+    
+    <!-- Library Activity -->
+    <string name="library_title">Library</string>
+    <string name="song_name_template">Song</string>
+    <string name="song_artist_template">Artist</string>
+    <string name="delete_song_description">Remove this song</string>
+    <string name="add_song_description">Add new song</string>
+    
+    <!-- Playlists Activity -->
+    <string name="playlists_title">Playlists</string>
+    <string name="add_playlist_description">Add new playlist</string>
+    <string name="playlist_example_1">Running in gym</string>
+    <string name="playlist_example_2">Driving to work</string>
+    <string name="playlist_example_3">Another playlist...</string>
+    <string name="edit_playlist_description">Edit</string>
+    <string name="share_playlist_description">Share</string>
+    <string name="delete_playlist_description">Delete</string>
+    
+    
+    <string name="playlist_name">Playlist_name</string>   
+
+</resources>

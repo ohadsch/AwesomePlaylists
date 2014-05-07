@@ -1,0 +1,2 @@
+INDEX VERSION 1.126+C:\Users\ALEX\Documents\GitHub\AwesomePlaylists\.metadata\.plugins\org.eclipse.jdt.core
+4226129410.index

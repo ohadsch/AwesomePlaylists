@@ -1,9 +1,14 @@
 package com.example.awesomeplaylists;
 
+import com.example.awesomeplaylists.PlaylistsActivity.GenericPlaylistClass;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class AddEditPlaylistActivity extends Activity {
 
@@ -11,6 +16,15 @@ public class AddEditPlaylistActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_edit_playlist);
+		
+		int playlistId = -1;
+		
+		try {
+			playlistId = Integer.parseInt(this.getIntent().getExtras().get("PlaylistId").toString());
+		}
+		catch (NumberFormatException ex) { }
+		
+		LoadExistingPlaylist(playlistId);
 	}
 
 	@Override
@@ -31,5 +45,37 @@ public class AddEditPlaylistActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	private void LoadExistingPlaylist(int playlistId) {
+		if (playlistId != -1) {
+			GenericPlaylistClass currPlaylist = PlaylistsActivity.playlists.get(playlistId);
+			TextView textPlaylistName = (TextView) findViewById(R.id.add_edit_name_input);
+			textPlaylistName.setText(currPlaylist.playlistName);
+			
+			CheckBox checkClassic = (CheckBox) findViewById(R.id.add_edit_check_classic);
+			checkClassic.setChecked(currPlaylist.isClassic);
+			
+			CheckBox checkElectronic = (CheckBox) findViewById(R.id.add_edit_check_electronic);
+			checkElectronic.setChecked(currPlaylist.isElectronic);
+			
+			CheckBox checkRap = (CheckBox) findViewById(R.id.add_edit_check_rap);
+			checkRap.setChecked(currPlaylist.isRap);
+			
+			CheckBox checkHiphop = (CheckBox) findViewById(R.id.add_edit_check_hiphop);
+			checkHiphop.setChecked(currPlaylist.isHiphop);
+			
+			RadioGroup radioLoudness = (RadioGroup) findViewById(R.id.add_edit_radio);
+			 // 0 = quiet, 1 = loud, 2 = both
+			if (currPlaylist.loudness == 0) {
+				radioLoudness.check(R.id.add_edit_radio_quiet);
+			} else {
+				if (currPlaylist.loudness == 1) {
+					radioLoudness.check(R.id.add_edit_radio_loud);
+				} else {
+					radioLoudness.check(R.id.add_edit_radio_all);
+				}
+			}
+		}
 	}
 }

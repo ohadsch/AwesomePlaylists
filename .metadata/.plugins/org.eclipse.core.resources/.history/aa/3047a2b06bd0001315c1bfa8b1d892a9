@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+	<LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:id="@+id/playlist_name"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/big_text"
+            android:layout_marginTop="12dp" />
+        
+        <ImageButton
+            android:id="@+id/edit_playlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:src="@android:drawable/ic_menu_edit"
+            android:contentDescription="@string/edit_playlist_description" />
+        
+        <ImageButton
+            android:id="@+id/share_playlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:src="@android:drawable/ic_menu_share"
+            android:contentDescription="@string/share_playlist_description" />
+        
+        <ImageButton
+            android:id="@+id/delete_playlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".20"
+            android:src="@android:drawable/ic_menu_delete"
+            android:contentDescription="@string/delete_playlist_description" />
+    </LinearLayout>
+    
+    <View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@android:color/holo_blue_light"/>
+</LinearLayout>

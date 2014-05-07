@@ -8,7 +8,7 @@
     android:paddingTop="30dp" >
 
     <EditText 
-	    android:id="@+id/name_input"
+	    android:id="@+id/add_edit_name_input"
 	    android:layout_width="fill_parent"
 	    android:layout_height="40dp"	    
 	    android:maxLength="25"
@@ -34,7 +34,7 @@
         android:orientation="horizontal">
         
         <CheckBox
-            android:id="@+id/check_classic"
+            android:id="@+id/add_edit_check_classic"
             android:text="Classic"                        		
 			android:layout_height="40dp"
 			android:layout_width="0dp"
@@ -43,7 +43,7 @@
 			android:textColor="@android:color/white" />
         
         <CheckBox
-            android:id="@+id/check_electronic"
+            android:id="@+id/add_edit_check_electronic"
             android:text="Electronic"                               
 			android:layout_height="40dp"
 			android:layout_width="0dp"
@@ -58,7 +58,7 @@
         android:orientation="horizontal">
         
          <CheckBox
-            android:id="@+id/check_rap"
+            android:id="@+id/add_edit_check_rap"
             android:text="Rap"                        	
 			android:layout_height="40dp"
 			android:layout_width="0dp"
@@ -67,7 +67,7 @@
 			android:textColor="@android:color/white" />
         
         <CheckBox
-            android:id="@+id/check_hiphop"
+            android:id="@+id/add_edit_check_hiphop"
             android:text="Hip-Hop"                                    	
 			android:layout_height="40dp"
 			android:layout_width="0dp"
@@ -78,6 +78,7 @@
     </LinearLayout>
     
 	<RadioGroup
+		android:id="@+id/add_edit_radio"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
@@ -85,6 +86,7 @@
 		android:checkedButton="@+id/radio_all" >		
             
 		<RadioButton 		    
+		    android:id="@+id/add_edit_radio_loud"
 			android:text="Loud"
 			android:layout_height="40dp"
 			android:layout_width="0dp"
@@ -93,6 +95,7 @@
         	android:textStyle="bold"
 			android:textColor="@android:color/white" />
 		<RadioButton 		    
+		    android:id="@+id/add_edit_radio_quiet"
 			android:text="Quiet"
 			android:layout_height="40dp"
 			android:layout_width="0dp"
@@ -101,7 +104,7 @@
         	android:textStyle="bold"
 			android:textColor="@android:color/white" />
 		<RadioButton 		    
-		    android:id="@+id/radio_all"
+		    android:id="@+id/add_edit_radio_all"
 			android:text="All"
 			android:layout_height="40dp"
 			android:layout_width="0dp"

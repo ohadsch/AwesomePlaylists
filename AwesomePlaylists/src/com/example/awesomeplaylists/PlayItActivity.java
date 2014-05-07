@@ -114,4 +114,10 @@ public class PlayItActivity extends Activity implements MediaPlayerControl {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public int getAudioSessionId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
