@@ -14,25 +14,24 @@ public class MusicController extends MediaController
 	public MusicController(Context context)
 	{
 		super(context);
-		//
+
 		myActivity = (Activity) context;
 	}
 
 	public MusicController(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public MusicController(Context context, boolean useFastForward)
 	{
-		super(context, useFastForward);
-		// TODO Auto-generated constructor stub
+		super(context, useFastForward);	
 	}
 
 	@Override
 	public void hide()
 	{
+		// Disable auto-hide of the controller
 		this.show(0);
 	}
 
@@ -47,7 +46,7 @@ public class MusicController extends MediaController
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event)
 	{
-
+		// Close the controller+activity when back key was pressed
 		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK)
 		{
 			super.hide();

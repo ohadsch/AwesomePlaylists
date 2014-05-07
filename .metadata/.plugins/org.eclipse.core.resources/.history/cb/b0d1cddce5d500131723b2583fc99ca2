@@ -1,9 +1,10 @@
-package com.example.awesomeplaylists.UI;
+package com.example.awesomeplaylists.Activities;
 
 
 import java.util.ArrayList;
 
 import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.Adapters.PlaylistsArrayAdapter;
 import com.example.awesomeplaylists.BL.GenericPlaylist;
 import com.example.awesomeplaylists.R.id;
 import com.example.awesomeplaylists.R.layout;
@@ -80,7 +81,8 @@ public class PlaylistsActivity extends ListActivity {
 	}
 	
 	public void deletePlaylist(View view) {
-		// Do something...
+		int playlistId = (Integer) view.getTag();
+		playlists.remove(playlistId);
 	}
 	
 	public void newPlaylist(View view) {

@@ -1,7 +1,8 @@
-package com.example.awesomeplaylists.UI;
+package com.example.awesomeplaylists.Activities;
 
 
 import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.Adapters.LibrarySongsArrayAdapter;
 import com.example.awesomeplaylists.BL.GenericSong;
 import com.example.awesomeplaylists.R.id;
 import com.example.awesomeplaylists.R.layout;
@@ -119,7 +120,8 @@ public class LibraryActivity extends ListActivity {
         
         try {
             // the uri of the table that we want to query
-            Uri uri = MediaStore.Audio.Media.getContentUriForPath("");
+//            Uri uri = MediaStore.Audio.Media.getContentUriForPath("");
+        	Uri uri = MediaStore.Audio.Media.INTERNAL_CONTENT_URI;
             // query the db
             cursor = getBaseContext().getContentResolver().query(uri,
                     projection, selection, null, sortOrder);

@@ -27,14 +27,24 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 
 public class PlayItActivity extends Activity implements MediaPlayerControl
-{
-
+{ //
 	private MusicController controller;
 	private MusicService musicSrv;
 	private Intent playIntent;
 	private boolean musicBound = false;
 	private ArrayList<GenericSong> songList;
 	private boolean paused = false, playbackPaused = false;
+
+	// Our handler for received Intents. This will be called whenever an Intent
+	// with an action named "custom-event-name" is broadcasted.
+	private BroadcastReceiver messageReceiver = new BroadcastReceiver()
+	{
+		@Override
+		public void onReceive(Context context, Intent intent)
+		{
+			updateLabels();
+		}
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -71,24 +81,12 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 		}
 		// ////////////////////////////////////////////////////////////////////////////
 
-		// Register to receive messages.
-		// We are registering an observer (mMessageReceiver) to receive Intents
-		// with actions named "custom-event-name".
+		// Register to receive messages from service
 		LocalBroadcastManager.getInstance(this).registerReceiver(
-				mMessageReceiver, new IntentFilter("songChanged"));
+				messageReceiver, new IntentFilter("songChanged"));
 	}
 
-	// Our handler for received Intents. This will be called whenever an Intent
-	// with an action named "custom-event-name" is broadcasted.
-	private BroadcastReceiver mMessageReceiver = new BroadcastReceiver()
-	{
-		@Override
-		public void onReceive(Context context, Intent intent)
-		{
-			updateLabels();
-		}
-	};
-
+	// Update song details
 	public void updateLabels()
 	{
 		TextView artistNameView = (TextView) findViewById(R.id.artistText);
@@ -112,6 +110,7 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 			musicSrv.setList(songList);
 			musicBound = true;
 
+			// Start playing first song on the list
 			musicSrv.setSong(0);
 			musicSrv.playSong();
 		}
@@ -144,7 +143,7 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 
 		// Unregister since the activity is about to be closed.
 		LocalBroadcastManager.getInstance(this).unregisterReceiver(
-				mMessageReceiver);
+				messageReceiver);
 
 		super.onDestroy();
 	}
@@ -152,7 +151,6 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.first, menu);
 		return true;
@@ -172,10 +170,12 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 		return super.onOptionsItemSelected(item);
 	}
 
+	// Set the the media control GUI
 	private void setController()
 	{
 		controller = new MusicController(this);
 
+		// Show it on the bottom of the screen
 		controller.setMediaPlayer(this);
 		controller.setAnchorView(findViewById(R.id.playItLayout));
 		controller.setEnabled(true);
@@ -318,7 +318,7 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 
 	@Override
 	public int getAudioSessionId()
-	{		
+	{
 		// TODO Auto-generated method stub
 		return 0;
 	}

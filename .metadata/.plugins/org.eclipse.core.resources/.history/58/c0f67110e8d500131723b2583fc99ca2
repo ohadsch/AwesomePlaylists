@@ -1,16 +1,11 @@
-package com.example.awesomeplaylists.UI;
+package com.example.awesomeplaylists.Activities;
 
-
-import com.example.awesomeplaylists.R;
-import com.example.awesomeplaylists.BL.GenericSong;
-import com.example.awesomeplaylists.R.id;
-import com.example.awesomeplaylists.R.layout;
-import com.example.awesomeplaylists.R.menu;
 
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +16,10 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.Adapters.LibrarySongsArrayAdapter;
+import com.example.awesomeplaylists.BL.GenericSong;
 
 public class LibraryActivity extends ListActivity {
 	
@@ -103,7 +102,7 @@ public class LibraryActivity extends ListActivity {
 	
 	private void LoadSongsFromCard() {		
         /** Making custom drawable */
-        String selection = MediaStore.Audio.Media.IS_MUSIC + " != 0";
+        String selection = "";//MediaStore.Audio.Media.IS_MUSIC + " != 0";
         /* AND " 
         		+ MediaStore.Audio.Media.MIME_TYPE + "= 'audio/mpeg3' AND "
         		+ MediaStore.Audio.Media.DURATION + " > 60000";*/
@@ -119,7 +118,8 @@ public class LibraryActivity extends ListActivity {
         
         try {
             // the uri of the table that we want to query
-            Uri uri = MediaStore.Audio.Media.getContentUriForPath("");
+            Uri uri = MediaStore.Audio.Media.getContentUriForPath(Environment.getExternalStorageDirectory().getPath());
+//        	Uri uri = MediaStore.Audio.Media.INTERNAL_CONTENT_URI;
             // query the db
             cursor = getBaseContext().getContentResolver().query(uri,
                     projection, selection, null, sortOrder);

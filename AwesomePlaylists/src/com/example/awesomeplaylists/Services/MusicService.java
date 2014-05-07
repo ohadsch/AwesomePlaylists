@@ -27,11 +27,8 @@ public class MusicService extends Service implements
 		MediaPlayer.OnCompletionListener
 {
 
-	// media player
 	private MediaPlayer player;
-	// song list
 	private ArrayList<GenericSong> songs;
-	// current position
 	private int songPosn;
 
 	private String songTitle = "";
@@ -47,12 +44,11 @@ public class MusicService extends Service implements
 
 	@Override
 	public void onCreate()
-	{
-		// initialize position
-		songPosn = 0;
+	{		
 		// create player
 		player = new MediaPlayer();
 
+		songPosn = 0;
 		initMusicPlayer();
 
 		super.onCreate();
@@ -121,6 +117,7 @@ public class MusicService extends Service implements
 	{
 		mp.start();
 
+		// Show service data on notification bar and enable return to activity
 		Intent notIntent = new Intent(this, PlayItActivity.class);
 		notIntent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		PendingIntent pendInt = PendingIntent.getActivity(this, 0, notIntent,
@@ -139,24 +136,26 @@ public class MusicService extends Service implements
 	public void playSong()
 	{
 		player.reset();
+		
+		if (songs.size() == 0)
+			return;
 
-		// get song
+		// get song from list
 		GenericSong playSong = songs.get(songPosn);
 
 		songTitle = playSong.songTitle;
 		bandTitle = playSong.songArtist;
 
-		Intent intent = new Intent("songChanged");
-		// You can also include some extra data.
-		LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+		sendSongChangedAlert();
 
 		// get id
 		long currSong = playSong.ID;
-		// set uri
+		// set URI
 		Uri trackUri = ContentUris.withAppendedId(
 				android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
 				currSong);
 
+		// Start the player
 		try
 		{
 			player.setDataSource(getApplicationContext(), trackUri);
@@ -164,8 +163,13 @@ public class MusicService extends Service implements
 		{
 			Log.e("MUSIC SERVICE", "Error setting data source", e);
 		}
-
 		player.prepareAsync();
+	}
+	
+	private void sendSongChangedAlert()
+	{
+		Intent intent = new Intent("songChanged");
+		LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
 	}
 
 	public void setSong(int songIndex)

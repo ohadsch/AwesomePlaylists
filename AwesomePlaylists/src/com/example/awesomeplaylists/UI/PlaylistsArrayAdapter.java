@@ -1,4 +1,4 @@
-package com.example.awesomeplaylists.Adapters;
+package com.example.awesomeplaylists.UI;
 
 import java.util.ArrayList;
 
