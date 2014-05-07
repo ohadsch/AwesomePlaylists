@@ -1,12 +1,20 @@
 package com.example.awesomeplaylists.UI;
 
+import java.util.regex.Pattern;
+
 import com.example.awesomeplaylists.R;
 import com.example.awesomeplaylists.R.id;
 import com.example.awesomeplaylists.R.layout;
 import com.example.awesomeplaylists.R.menu;
+import com.example.awesomeplaylists.BL.UserData;
+import com.example.awesomeplaylists.DAL.PlaylistRemoteDataAccess;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,5 +48,28 @@ public class UserSettingsActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void save(View view)
+	{
+		Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
+		Account[] accounts = AccountManager.get(this).getAccounts();
+		for (Account account : accounts) {
+		    if (emailPattern.matcher(account.name).matches()) {
+		        String possibleEmail = account.name;	
+		        
+		        PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData(possibleEmail));
+		    }
+		}
+		
+		try{
+			PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData("asva"));
+			PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData("bbb@gmail.com"));
+			PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData("CCC@gmail.com"));
+		}
+		catch(Exception e){
+			Log.d("FAIL PARSE", e.getMessage());
+		}
+		
 	}
 }
