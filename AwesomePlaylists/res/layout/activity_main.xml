@@ -26,7 +26,8 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Music" />
+        android:text="Play Music"
+        android:onClick="playMusicClicked" />
     
     <Button
         android:id="@+id/button3"

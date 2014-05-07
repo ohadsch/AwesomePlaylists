@@ -25,6 +25,13 @@
     <string name="delete_playlist_description">Delete</string>
     
     
-    <string name="playlist_name">Playlist_name</string>   
+    <string name="title_activity_add_edit_playlist">AddEditPlaylistActivity</string>
+    <string name="playlist_name">Playist Name</string>    
+ 
+    <string name="title_activity_play_it">PlayItActivity</string>
+    
+    <!--  Colors  -->
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
 
 </resources>
