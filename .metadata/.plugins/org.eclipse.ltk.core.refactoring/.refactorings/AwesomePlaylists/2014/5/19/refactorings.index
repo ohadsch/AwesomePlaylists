@@ -10,3 +10,5 @@
 1399191832734	Rename type 'PlaylistsActivity2'
 1399192282387	Rename resource 'library_activity2.xml'
 1399192293722	Copy file
+1399463079285	Move type 'GenericPlaylistClass' to new file
+1399463121164	Move type 'GenericSongClass' to new file

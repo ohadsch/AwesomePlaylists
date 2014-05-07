@@ -1,11 +1,11 @@
 package com.example.awesomeplaylists;
 
-import com.example.awesomeplaylists.PlaylistsActivity.GenericPlaylistClass;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -50,6 +50,9 @@ public class AddEditPlaylistActivity extends Activity {
 	private void LoadExistingPlaylist(int playlistId) {
 		if (playlistId != -1) {
 			GenericPlaylistClass currPlaylist = PlaylistsActivity.playlists.get(playlistId);
+			
+			findViewById(R.id.add_edit_main_layout).setTag(playlistId);
+			
 			TextView textPlaylistName = (TextView) findViewById(R.id.add_edit_name_input);
 			textPlaylistName.setText(currPlaylist.playlistName);
 			
@@ -77,5 +80,53 @@ public class AddEditPlaylistActivity extends Activity {
 				}
 			}
 		}
+	}
+
+	public void savePlaylist(View view) {
+		GenericPlaylistClass currPlaylist;
+		Object playlistIdObj = ((View) findViewById(R.id.add_edit_main_layout)).getTag();
+		int playlistId = -1;
+		if (playlistIdObj != null) {
+			playlistId = (Integer) playlistIdObj;
+			currPlaylist = PlaylistsActivity.playlists.get(playlistId);
+		} else {
+			currPlaylist = new GenericPlaylistClass();
+		}
+				
+		TextView textPlaylistName = (TextView) findViewById(R.id.add_edit_name_input);
+		currPlaylist.playlistName = textPlaylistName.getText().toString();
+		
+		CheckBox checkClassic = (CheckBox) findViewById(R.id.add_edit_check_classic);
+		currPlaylist.isClassic = checkClassic.isChecked();
+		
+		CheckBox checkElectronic = (CheckBox) findViewById(R.id.add_edit_check_electronic);
+		currPlaylist.isElectronic = checkElectronic.isChecked();
+		
+		CheckBox checkRap = (CheckBox) findViewById(R.id.add_edit_check_rap);
+		currPlaylist.isRap = checkRap.isChecked();
+		
+		CheckBox checkHiphop = (CheckBox) findViewById(R.id.add_edit_check_hiphop);
+		currPlaylist.isHiphop = checkHiphop.isChecked();
+		
+		RadioGroup radioLoudness = (RadioGroup) findViewById(R.id.add_edit_radio);
+		 // 0 = quiet, 1 = loud, 2 = both
+		if (radioLoudness.getCheckedRadioButtonId() == R.id.add_edit_radio_quiet) {
+			currPlaylist.loudness = 0;
+		} else {
+			if (radioLoudness.getCheckedRadioButtonId() == R.id.add_edit_radio_loud) {
+				currPlaylist.loudness = 1;
+			} else {
+				currPlaylist.loudness = 2;
+			}
+		}
+		
+		if (playlistId == -1) {
+			PlaylistsActivity.playlists.add(currPlaylist);
+		} else {
+			PlaylistsActivity.playlists.set(playlistId, currPlaylist);
+		}
+		
+		Intent intent = new Intent(this, PlaylistsActivity.class);
+		startActivity(intent);
 	}
 }

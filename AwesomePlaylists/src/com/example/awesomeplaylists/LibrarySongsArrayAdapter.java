@@ -12,8 +12,6 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.awesomeplaylists.LibraryActivity.GenericSongClass;
-
 public class LibrarySongsArrayAdapter extends ArrayAdapter<GenericSongClass> {
 
 	private final Context context;

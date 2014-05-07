@@ -10,8 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.awesomeplaylists.PlaylistsActivity.GenericPlaylistClass;
-
 public class PlaylistsArrayAdapter extends ArrayAdapter<GenericPlaylistClass> {
 
 	private final Context context;

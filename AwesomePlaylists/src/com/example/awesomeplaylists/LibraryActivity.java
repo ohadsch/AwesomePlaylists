@@ -137,10 +137,4 @@ public class LibraryActivity extends ListActivity {
             }
         }
     }
-	
-	public class GenericSongClass {
-        String songTitle = "";
-        String songArtist = "";
-        Boolean[] genres = { false, false, false, false };
-	}
 }
