@@ -15,6 +15,7 @@ import android.view.View;
 
 import com.example.awesomeplaylists.R;
 import com.example.awesomeplaylists.BL.UserData;
+import com.example.awesomeplaylists.DAL.PlaylistRemoteDataAccess;
 import com.parse.Parse;
 
 public class UserSettingsActivity extends Activity {
@@ -59,6 +60,8 @@ public class UserSettingsActivity extends Activity {
 		
 		try{
 			PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData("asva"));
+			PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData("bbb@gmail.com"));
+			PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData("CCC@gmail.com"));
 		}
 		catch(Exception e){
 			Log.d("FAIL!!!", e.getMessage());

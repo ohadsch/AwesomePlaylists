@@ -7,7 +7,7 @@
     <string name="title_activity_library">LibraryActivity</string>
     <string name="title_activity_playlists">PlaylistsActivity</string>
     <string name="title_activity_play_it">PlayItActivity</string>
-    <string name="title_activity_Settings">SettingsActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_add_edit_playlist">AddEditPlaylistActivity</string>
 
     <!-- Main Activity -->
