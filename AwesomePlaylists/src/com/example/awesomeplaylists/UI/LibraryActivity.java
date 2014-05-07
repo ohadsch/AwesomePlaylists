@@ -2,6 +2,7 @@ package com.example.awesomeplaylists.UI;
 
 
 import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.Adapters.LibrarySongsArrayAdapter;
 import com.example.awesomeplaylists.BL.GenericSong;
 import com.example.awesomeplaylists.R.id;
 import com.example.awesomeplaylists.R.layout;

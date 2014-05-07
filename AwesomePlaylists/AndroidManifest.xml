@@ -31,12 +31,8 @@
             android:label="@string/title_activity_play_it" >
         </activity>
         <activity
-            android:name="com.example.awesomeplaylists.Activities.UserSettingsActivity"
-            android:label="@string/title_activity_settings" >           
-
             android:name="com.example.awesomeplaylists.UI.UserSettingsActivity"
             android:label="@string/title_activity_settings" >
-
         </activity>
         <activity
             android:name="com.example.awesomeplaylists.UI.AddEditPlaylistActivity"

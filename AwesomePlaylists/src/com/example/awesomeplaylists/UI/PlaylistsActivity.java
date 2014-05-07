@@ -4,6 +4,7 @@ package com.example.awesomeplaylists.UI;
 import java.util.ArrayList;
 
 import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.Adapters.PlaylistsArrayAdapter;
 import com.example.awesomeplaylists.BL.GenericPlaylist;
 import com.example.awesomeplaylists.R.id;
 import com.example.awesomeplaylists.R.layout;
