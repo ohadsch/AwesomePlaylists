@@ -19,9 +19,7 @@ public class PlaylistsActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_playlists);
 		
-		if (playlists.isEmpty()) {
-			LoadDummyPlaylists();
-		}
+		LoadDummyPlaylists();
 		
 		PlaylistsArrayAdapter adapter = 
 				new PlaylistsArrayAdapter(this, playlists);
@@ -48,7 +46,7 @@ public class PlaylistsActivity extends ListActivity {
 		return super.onOptionsItemSelected(item);
 	}
 		
-	private static void LoadDummyPlaylists() {
+	private void LoadDummyPlaylists() {
 		playlists.add(
 				new GenericPlaylistClass("Running in gym", false, true, false, 
 						true, 1));
@@ -75,10 +73,5 @@ public class PlaylistsActivity extends ListActivity {
 	
 	public void deletePlaylist(View view) {
 		// Do something...
-	}
-	
-	public void newPlaylist(View view) {
-		Intent intent = new Intent(this,AddEditPlaylistActivity.class);
-		startActivity(intent);
 	}
 }

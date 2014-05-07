@@ -76,9 +76,4 @@ public class PlaylistsActivity extends ListActivity {
 	public void deletePlaylist(View view) {
 		// Do something...
 	}
-	
-	public void newPlaylist(View view) {
-		Intent intent = new Intent(this,AddEditPlaylistActivity.class);
-		startActivity(intent);
-	}
 }

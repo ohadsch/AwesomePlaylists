@@ -23,7 +23,6 @@ public class AddEditPlaylistActivity extends Activity {
 			playlistId = Integer.parseInt(this.getIntent().getExtras().get("PlaylistId").toString());
 		}
 		catch (NumberFormatException ex) { }
-		catch (NullPointerException ex) { }
 		
 		LoadExistingPlaylist(playlistId);
 	}

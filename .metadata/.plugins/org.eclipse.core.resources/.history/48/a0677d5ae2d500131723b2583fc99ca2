@@ -26,7 +26,7 @@
         <ImageButton
             android:id="@+id/add_playlist_img"
             android:layout_width="60dp"
-            android:layout_height="match_parent"
+            android:layout_height="60dp"
             android:background="@android:color/black"
             android:contentDescription="@string/add_playlist_description"
             android:onClick="newPlaylist"
