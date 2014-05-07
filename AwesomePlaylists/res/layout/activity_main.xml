@@ -8,40 +8,45 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/main_title"
         android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/button_library"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/library_title"
         android:textColor="@android:color/white"
         android:onClick="goToLibrary" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:text="@string/playlists_title"
         android:textColor="@android:color/white"
         android:onClick="goToPlaylists" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="goToPlayIt"
         android:text="Play Music"
-        android:textColor="@android:color/white"
-        android:onClick="goToPlayIt" />
+        android:textColor="@android:color/white" />
     
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="goToSettings"
         android:text="Settings"
-        android:textColor="@android:color/white"
-        android:onClick="goToSettings" />
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
