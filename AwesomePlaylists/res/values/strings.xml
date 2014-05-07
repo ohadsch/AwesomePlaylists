@@ -19,7 +19,7 @@
     <string name="song_artist_template">Artist</string>
     <string name="delete_song_description">Remove this song</string>
     <string name="add_song_description">Add new song</string>
-
+    
     <!-- Playlists Activity -->
     <string name="playlists_title">Playlists</string>
     <string name="add_playlist_description">Add new playlist</string>
@@ -29,6 +29,10 @@
     <string name="edit_playlist_description">Edit</string>
     <string name="share_playlist_description">Share</string>
     <string name="delete_playlist_description">Delete</string>
-    <string name="playlist_name">Playlist_name</string>
+    <string name="playlist_name">Playist Name</string>    
+ 
+    <!--  Colors  -->
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
 
 </resources>

@@ -1,7 +1,13 @@
-package com.example.awesomeplaylists.Activities;
+package com.example.awesomeplaylists.UI;
 
-import java.io.Console;
 import java.util.regex.Pattern;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.BL.UserData;
+import com.example.awesomeplaylists.DAL.PlaylistRemoteDataAccess;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
+import com.example.awesomeplaylists.R.menu;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -9,14 +15,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.example.awesomeplaylists.R;
-import com.example.awesomeplaylists.BL.UserData;
-import com.example.awesomeplaylists.DAL.PlaylistRemoteDataAccess;
-import com.parse.Parse;
+import android.view.ViewGroup;
+import android.os.Build;
 
 public class UserSettingsActivity extends Activity {
 
@@ -69,5 +73,3 @@ public class UserSettingsActivity extends Activity {
 		
 	}
 }
-
-

@@ -1,4 +1,4 @@
-package com.example.awesomeplaylists.Activities;
+package com.example.awesomeplaylists.UI;
 
 import com.example.awesomeplaylists.R;
 import com.example.awesomeplaylists.BL.GenericPlaylist;
