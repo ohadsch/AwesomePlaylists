@@ -20,7 +20,6 @@ import android.view.View;
 public class PlaylistsActivity extends ListActivity {
 	
 	public static ArrayList<GenericPlaylist> playlists = new ArrayList<GenericPlaylist>();
-	private PlaylistsArrayAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,7 @@ public class PlaylistsActivity extends ListActivity {
 			LoadDummyPlaylists();
 		}
 		
-		adapter = 
+		PlaylistsArrayAdapter adapter = 
 				new PlaylistsArrayAdapter(this, playlists);
 	    setListAdapter(adapter);
 	}
@@ -78,13 +77,11 @@ public class PlaylistsActivity extends ListActivity {
 	}
 	
 	public void sharePlaylist(View view) {
-		// Do something...
+		int playlistId = (Integer) view.getTa();
 	}
 	
 	public void deletePlaylist(View view) {
-		int playlistId = (Integer) view.getTag();
-		adapter.remove(playlists.get(playlistId));
-		adapter.notifyDataSetChanged();
+		// Do something...
 	}
 	
 	public void newPlaylist(View view) {

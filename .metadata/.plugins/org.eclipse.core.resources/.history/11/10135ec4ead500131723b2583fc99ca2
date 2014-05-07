@@ -7,7 +7,7 @@ package com.example.awesomeplaylists.BL;
  */
 public class GenericSong {
 	/**
-	 * ID: A unique ID acquired from the MediaStore cursor run
+	 * A unique ID acquired from the MediaStore cursor run
 	 */
 	public long ID;
     public String songTitle = "";

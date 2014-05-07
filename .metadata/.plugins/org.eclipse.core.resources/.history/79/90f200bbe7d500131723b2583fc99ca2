@@ -1,11 +1,17 @@
 package com.example.awesomeplaylists.Activities;
 
 
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.Adapters.LibrarySongsArrayAdapter;
+import com.example.awesomeplaylists.BL.GenericSong;
+import com.example.awesomeplaylists.R.id;
+import com.example.awesomeplaylists.R.layout;
+import com.example.awesomeplaylists.R.menu;
+
 import android.app.ListActivity;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,10 +22,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-
-import com.example.awesomeplaylists.R;
-import com.example.awesomeplaylists.Adapters.LibrarySongsArrayAdapter;
-import com.example.awesomeplaylists.BL.GenericSong;
 
 public class LibraryActivity extends ListActivity {
 	
@@ -102,7 +104,7 @@ public class LibraryActivity extends ListActivity {
 	
 	private void LoadSongsFromCard() {		
         /** Making custom drawable */
-        String selection = MediaStore.Audio.Media.IS_MUSIC + " = 1";
+        String selection = "";//MediaStore.Audio.Media.IS_MUSIC + " != 0";
         /* AND " 
         		+ MediaStore.Audio.Media.MIME_TYPE + "= 'audio/mpeg3' AND "
         		+ MediaStore.Audio.Media.DURATION + " > 60000";*/
@@ -118,7 +120,8 @@ public class LibraryActivity extends ListActivity {
         
         try {
             // the uri of the table that we want to query
-            Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+            Uri uri = MediaStore.Audio.Media.getContentUriForPath("/sdcard/");
+//        	Uri uri = MediaStore.Audio.Media.INTERNAL_CONTENT_URI;
             // query the db
             cursor = getBaseContext().getContentResolver().query(uri,
                     projection, selection, null, sortOrder);
@@ -142,43 +145,4 @@ public class LibraryActivity extends ListActivity {
             }
         }
     }
-	
-//	private void LongSongsFromCard2() {
-//		Uri uri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-//        // Perform a query on the content resolver. The URI we're passing specifies that we
-//        // want to query for all audio media on external storage (e.g. SD card)
-//        Cursor cur = ContentResolver.query(uri, null,
-//                MediaStore.Audio.Media.IS_MUSIC + " = 1", null, null);
-//        Log.i(TAG, "Query finished. " + (cur == null ? "Returned NULL." : "Returned a cursor."));
-//        if (cur == null) {
-//            // Query failed...
-//            Log.e(TAG, "Failed to retrieve music: cursor is null :-(");
-//            return;
-//        }
-//        if (!cur.moveToFirst()) {
-//            // Nothing to query. There is no music on the device. How boring.
-//            Log.e(TAG, "Failed to move cursor to first row (no query results).");
-//            return;
-//        }
-//        Log.i(TAG, "Listing...");
-//        // retrieve the indices of the columns where the ID, title, etc. of the song are
-//        int artistColumn = cur.getColumnIndex(MediaStore.Audio.Media.ARTIST);
-//        int titleColumn = cur.getColumnIndex(MediaStore.Audio.Media.TITLE);
-//        int albumColumn = cur.getColumnIndex(MediaStore.Audio.Media.ALBUM);
-//        int durationColumn = cur.getColumnIndex(MediaStore.Audio.Media.DURATION);
-//        int idColumn = cur.getColumnIndex(MediaStore.Audio.Media._ID);
-//        Log.i(TAG, "Title column index: " + String.valueOf(titleColumn));
-//        Log.i(TAG, "ID column index: " + String.valueOf(titleColumn));
-//        // add each song to mItems
-//        do {
-//            Log.i(TAG, "ID: " + cur.getString(idColumn) + " Title: " + cur.getString(titleColumn));
-//            mItems.add(new Item(
-//                    cur.getLong(idColumn),
-//                    cur.getString(artistColumn),
-//                    cur.getString(titleColumn),
-//                    cur.getString(albumColumn),
-//                    cur.getLong(durationColumn)));
-//        } while (cur.moveToNext());
-//        Log.i(TAG, "Done querying media. MusicRetriever is ready.");
-//	}
 }

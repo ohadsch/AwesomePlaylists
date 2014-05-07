@@ -84,7 +84,6 @@ public class PlaylistsActivity extends ListActivity {
 	public void deletePlaylist(View view) {
 		int playlistId = (Integer) view.getTag();
 		adapter.remove(playlists.get(playlistId));
-		adapter.notifyDataSetChanged();
 	}
 	
 	public void newPlaylist(View view) {
