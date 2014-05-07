@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.awesomeplaylists.Activities.MainActivity"
+            android:name="com.example.awesomeplaylists.UI.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,19 +23,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.awesomeplaylists.Activities.PlayItActivity"
+            android:name="com.example.awesomeplaylists.UI.PlayItActivity"
             android:label="@string/title_activity_play_it" >
         </activity>
         <activity
-            android:name="com.example.awesomeplaylists.Activities.UserSettingsActivity"
+            android:name="com.example.awesomeplaylists.UI.UserSettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name="com.example.awesomeplaylists.Activities.AddEditPlaylistActivity"
+            android:name="com.example.awesomeplaylists.UI.AddEditPlaylistActivity"
             android:label="@string/title_activity_add_edit_playlist" >
         </activity>
         <activity
-            android:name="com.example.awesomeplaylists.Activities.LibraryActivity"
+            android:name="com.example.awesomeplaylists.UI.LibraryActivity"
             android:label="@string/library_title"
             android:parentActivityName="android.app.ListActivity" >
             <meta-data
@@ -43,14 +43,14 @@
                 android:value="android.app.ListActivity" />
         </activity>
         <activity
-            android:name="com.example.awesomeplaylists.Activities.PlaylistsActivity"
+            android:name="com.example.awesomeplaylists.UI.PlaylistsActivity"
             android:label="@string/playlists_title"
             android:parentActivityName="android.app.ListActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="android.app.ListActivity" />
         </activity>
-        <service android:name="com.example.awesomeplaylists.MusicService" />
+        <service android:name="com.example.awesomeplaylists.Services.MusicService" />
     </application>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 </manifest>

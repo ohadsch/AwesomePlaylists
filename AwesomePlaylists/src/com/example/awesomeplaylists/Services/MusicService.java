@@ -14,9 +14,9 @@ import android.os.PowerManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import java.util.Random;
+import com.example.awesomeplaylists.BL.GenericSong;
 
 import com.example.awesomeplaylists.R;
-import com.example.awesomeplaylists.R.drawable;
 import com.example.awesomeplaylists.UI.PlayItActivity;
 
 import android.app.Notification;
@@ -30,7 +30,7 @@ public class MusicService extends Service implements
 	// media player
 	private MediaPlayer player;
 	// song list
-	private ArrayList<Song> songs;
+	private ArrayList<GenericSong> songs;
 	// current position
 	private int songPosn;
 
@@ -78,7 +78,7 @@ public class MusicService extends Service implements
 		player.setOnErrorListener(this);
 	}
 
-	public void setList(ArrayList<Song> theSongs)
+	public void setList(ArrayList<GenericSong> theSongs)
 	{
 		songs = theSongs;
 	}
@@ -141,17 +141,17 @@ public class MusicService extends Service implements
 		player.reset();
 
 		// get song
-		Song playSong = songs.get(songPosn);
+		GenericSong playSong = songs.get(songPosn);
 
-		songTitle = playSong.getTitle();
-		bandTitle = playSong.getArtist();
+		songTitle = playSong.songTitle;
+		bandTitle = playSong.songArtist;
 
 		Intent intent = new Intent("songChanged");
 		// You can also include some extra data.
 		LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
 
 		// get id
-		long currSong = playSong.getID();
+		long currSong = playSong.ID;
 		// set uri
 		Uri trackUri = ContentUris.withAppendedId(
 				android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,

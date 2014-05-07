@@ -3,7 +3,7 @@ package com.example.awesomeplaylists.UI;
 import java.util.ArrayList;
 
 import com.example.awesomeplaylists.Services.MusicService;
-import com.example.awesomeplaylists.Services.Song;
+import com.example.awesomeplaylists.BL.GenericSong;
 import com.example.awesomeplaylists.Services.MusicService.MusicBinder;
 
 import com.example.awesomeplaylists.R;
@@ -33,7 +33,7 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 	private MusicService musicSrv;
 	private Intent playIntent;
 	private boolean musicBound = false;
-	private ArrayList<Song> songList;
+	private ArrayList<GenericSong> songList;
 	private boolean paused = false, playbackPaused = false;
 
 	@Override
@@ -50,7 +50,7 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 		Uri musicUri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
 		Cursor musicCursor = musicResolver.query(musicUri, null, null, null,
 				null);
-		songList = new ArrayList<Song>();
+		songList = new ArrayList<GenericSong>();
 		if (musicCursor != null && musicCursor.moveToFirst())
 		{
 			// get columns
@@ -66,7 +66,7 @@ public class PlayItActivity extends Activity implements MediaPlayerControl
 				long thisId = musicCursor.getLong(idColumn);
 				String thisTitle = musicCursor.getString(titleColumn);
 				String thisArtist = musicCursor.getString(artistColumn);
-				songList.add(new Song(thisId, thisTitle, thisArtist));
+				songList.add(new GenericSong(thisId, thisTitle, thisArtist));
 			} while (musicCursor.moveToNext());
 		}
 		// ////////////////////////////////////////////////////////////////////////////
