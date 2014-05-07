@@ -1,20 +1,21 @@
 package com.example.awesomeplaylists.Activities;
 
-import com.example.awesomeplaylists.R;
-import com.example.awesomeplaylists.R.id;
-import com.example.awesomeplaylists.R.layout;
-import com.example.awesomeplaylists.R.menu;
+import java.io.Console;
+import java.util.regex.Pattern;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+
+import com.example.awesomeplaylists.R;
+import com.example.awesomeplaylists.BL.UserData;
+import com.parse.Parse;
 
 public class UserSettingsActivity extends Activity {
 
@@ -43,4 +44,27 @@ public class UserSettingsActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public void save(View view)
+	{
+		Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
+		Account[] accounts = AccountManager.get(this).getAccounts();
+		for (Account account : accounts) {
+		    if (emailPattern.matcher(account.name).matches()) {
+		        String possibleEmail = account.name;	
+		        
+		        PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData(possibleEmail));
+		    }
+		}
+		
+		try{
+			PlaylistRemoteDataAccess.instance(this).saveUserData(new UserData("asva"));
+		}
+		catch(Exception e){
+			Log.d("FAIL!!!", e.getMessage());
+		}
+		
+	}
 }
+
+
