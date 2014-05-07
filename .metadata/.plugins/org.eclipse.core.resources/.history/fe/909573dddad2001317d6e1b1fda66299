@@ -1,0 +1,76 @@
+package com.example.awesomeplaylists;
+
+import java.util.Random;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.example.awesomeplaylists.LibraryActivity2.GenericSongClass;
+
+public class LibrarySongsArrayAdapter extends ArrayAdapter<GenericSongClass> {
+
+	private final Context context;
+	private final GenericSongClass[] values;
+	
+	public LibrarySongsArrayAdapter(Context context, GenericSongClass[] values) {
+	    super(context, R.layout.library_row_layout, values);
+	    this.context = context;
+	    this.values = values;
+	  }
+
+	  @Override
+	  public View getView(int position, View convertView, ViewGroup parent) {
+	    LayoutInflater inflater = (LayoutInflater) context
+	        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	    View rowView = inflater.inflate(R.layout.library_row_layout, parent, false);
+	    
+	    TextView textSongName = 
+	    		(TextView) rowView.findViewById(R.id.library_row_firstLine);
+	    textSongName.setSelected(true);
+	    textSongName.setEnabled(true);
+	    textSongName.setFocusable(false);
+	    
+	    TextView textSongArtist = 
+	    		(TextView) rowView.findViewById(R.id.library_row_secondLine);
+	    textSongArtist.setSelected(true);
+	    textSongArtist.setEnabled(true);
+	    textSongArtist.setFocusable(false);
+	    
+//	    ImageView imageView = 
+//	    		(ImageView) rowView.findViewById(R.id.library_row_deleteIcon);
+//	    // Change the icon
+//	    imageView.setImageResource(android.R.drawable.ic_menu_delete);
+	    
+	    textSongName.setText(values[position].songTitle);
+	    textSongArtist.setText(values[position].songArtist);
+	    
+	    LinearLayout libraryGenres = (LinearLayout) rowView.findViewById(R.id.library_genres_info);
+	    libraryGenres.setVisibility(LinearLayout.GONE);
+	    
+	    Random rand=new Random();
+	    
+	    CheckBox checkClassic = (CheckBox) rowView.findViewById(R.id.library_check_classic);
+	    checkClassic.setChecked(rand.nextInt(2) == 1 ? true : false);
+	    checkClassic.setOnCheckedChangeListener(new onCheckedChangeListener() {
+	    	
+	    });
+	    CheckBox checkElectronic = (CheckBox) rowView.findViewById(R.id.library_check_electronic);
+	    checkElectronic.setChecked(rand.nextInt(2) == 1 ? true : false);
+	    CheckBox checkRap = (CheckBox) rowView.findViewById(R.id.library_check_rap);
+	    checkRap.setChecked(rand.nextInt(2) == 1 ? true : false);
+	    CheckBox checkHiphop = (CheckBox) rowView.findViewById(R.id.library_check_hiphop);
+	    checkHiphop.setChecked(rand.nextInt(2) == 1 ? true : false);
+
+	    return rowView;
+	  }
+
+}

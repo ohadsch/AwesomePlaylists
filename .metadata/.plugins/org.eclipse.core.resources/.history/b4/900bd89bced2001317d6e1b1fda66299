@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="2dip" 
+    android:background="@android:color/black">
+
+    <RelativeLayout
+        android:id="@+id/library_row"
+	    android:layout_width="fill_parent"
+	    android:layout_height="?android:attr/listPreferredItemHeight"
+	    android:background="@android:color/black">
+	    
+	    <TextView
+	        android:id="@+id/library_row_secondLine"
+	        android:layout_width="fill_parent"
+	        android:layout_height="20dip"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentLeft="true"
+	        android:layout_toLeftOf="@+id/library_row_deleteIcon"
+	        android:ellipsize="marquee"
+	        android:marqueeRepeatLimit="marquee_forever"
+		    android:focusable="true"
+		    android:focusableInTouchMode="true"
+	        android:singleLine="true"
+	        android:text="Description"
+	        android:textSize="@dimen/medium_text"
+	        android:textColor="@android:color/darker_gray" />
+	
+	    <TextView
+	        android:id="@+id/library_row_firstLine"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@id/library_row_secondLine"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignWithParentIfMissing="true"
+	        android:layout_toLeftOf="@+id/library_row_deleteIcon"
+	        android:gravity="center_vertical"
+	        android:text="Example Application"
+	        android:textSize="@dimen/big_text"
+	        android:textColor="@android:color/white"
+	        android:scrollHorizontally="true"
+	        android:singleLine="true"
+	        android:ellipsize="marquee"
+	        android:marqueeRepeatLimit="marquee_forever"
+		    android:focusable="true"
+		    android:focusableInTouchMode="true"  />
+	
+	    <ImageView
+	        android:id="@+id/library_row_deleteIcon"
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="6dip"
+	        android:contentDescription="TODO"
+	        android:src="@android:drawable/ic_menu_delete"
+	        android:background="@android:color/black"
+	        android:onClick="showGenres" />
+    </RelativeLayout>
+    
+    <LinearLayout
+        android:id="@+id/library_genres_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/library_row"
+        android:visibility="gone">
+	    
+        <CheckBox 
+            android:id="@+id/library_check_classic"
+            android:text="Classic"                        		
+		    android:layout_height="20dp"
+			android:layout_width="wrap_content"
+			android:textColor="@android:color/tertiary_text_light"
+			android:textSize="@dimen/small_text" />
+	    
+        <CheckBox 
+            android:id="@+id/library_check_electronic"
+            android:text="Electronic"                        		
+		    android:layout_height="20dp"
+			android:layout_width="wrap_content"
+			android:textColor="@android:color/tertiary_text_light"
+			android:textSize="@dimen/small_text" />
+	    
+        <CheckBox 
+            android:id="@+id/library_check_rap"
+            android:text="Rap"                        		
+		    android:layout_height="20dp"
+			android:layout_width="wrap_content"
+			android:textColor="@android:color/tertiary_text_light"
+			android:textSize="@dimen/small_text" />
+	    
+        <CheckBox 
+            android:id="@+id/library_check_hiphop"
+            android:text="HipHop"                        		
+		    android:layout_height="20dp"
+			android:layout_width="wrap_content"
+			android:textColor="@android:color/tertiary_text_light"
+			android:textSize="@dimen/small_text" />
+        
+    </LinearLayout>
+
+</RelativeLayout> 

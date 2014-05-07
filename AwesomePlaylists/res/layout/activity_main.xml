@@ -1,38 +1,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@android:color/black" >
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AwesomePlaylists!"
+        android:layout_gravity="center"
+        android:text="@string/main_title"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_library"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Library" />
+        android:layout_gravity="center"
+        android:text="@string/library_title"
+        android:textColor="@android:color/white"
+        android:onClick="goToLibrary" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Playlists" />
+        android:layout_gravity="center"
+        android:text="@string/playlists_title"
+        android:textColor="@android:color/white"
+        android:onClick="goToPlaylists" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="goToPlayIt"
         android:text="Play Music"
-        android:onClick="playMusicClicked" />
+        android:textColor="@android:color/white" />
     
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:text="Settings" />
+        android:layout_gravity="center"
+        android:onClick="goToSettings"
+        android:text="Settings"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

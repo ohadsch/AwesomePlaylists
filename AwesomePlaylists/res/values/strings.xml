@@ -4,9 +4,15 @@
     <string name="app_name">AwesomePlaylists</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_first">FirstActivity</string>
-    
-    
+    <string name="title_activity_library">LibraryActivity</string>
+    <string name="title_activity_playlists">PlaylistsActivity</string>
+    <string name="title_activity_play_it">PlayItActivity</string>
+    <string name="title_activity_Settings">SettingsActivity</string>
+    <string name="title_activity_add_edit_playlist">AddEditPlaylistActivity</string>
+
+    <!-- Main Activity -->
+    <string name="main_title">AwesomePlaylists!</string>
+
     <!-- Library Activity -->
     <string name="library_title">Library</string>
     <string name="song_name_template">Song</string>
@@ -23,13 +29,8 @@
     <string name="edit_playlist_description">Edit</string>
     <string name="share_playlist_description">Share</string>
     <string name="delete_playlist_description">Delete</string>
-    
-    
-    <string name="title_activity_add_edit_playlist">AddEditPlaylistActivity</string>
     <string name="playlist_name">Playist Name</string>    
  
-    <string name="title_activity_play_it">PlayItActivity</string>
-    
     <!--  Colors  -->
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>

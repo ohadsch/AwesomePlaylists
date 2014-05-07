@@ -1,0 +1,42 @@
+package com.example.awesomeplaylists;
+
+import java.util.ArrayList;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import com.example.awesomeplaylists.PlaylistsActivity.GenericPlaylistClass;
+
+public class PlaylistsArrayAdapter extends ArrayAdapter<GenericPlaylistClass> {
+
+	private final Context context;
+	private final ArrayList<GenericPlaylistClass> values;
+	
+	public PlaylistsArrayAdapter(Context context, ArrayList<GenericPlaylistClass> values) {
+	    super(context, R.layout.playlists_row_layout, values);
+	    this.context = context;
+	    this.values = values;
+	  }
+
+	  @Override
+	  public View getView(int position, View convertView, ViewGroup parent) {
+	    LayoutInflater inflater = (LayoutInflater) context
+	        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	    View rowView = inflater.inflate(R.layout.playlists_row_layout, parent, false);
+	    rowView.setTag(position);
+	    
+	    TextView textSongName = 
+	    		(TextView) rowView.findViewById(R.id.library_row_firstLine);
+	    textSongName.setSelected(true);
+	    textSongName.setEnabled(true);
+	    textSongName.setFocusable(false);
+	    textSongName.setText(values.get(position).playlistName);
+
+	    return rowView;
+	  }
+
+}

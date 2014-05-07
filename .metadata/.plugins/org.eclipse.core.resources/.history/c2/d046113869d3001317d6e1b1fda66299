@@ -1,0 +1,133 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@android:color/black"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="30dp" >
+
+    <EditText 
+	    android:id="@+id/add_edit_name_input"
+	    android:layout_width="fill_parent"
+	    android:layout_height="40dp"	    
+	    android:maxLength="25"
+	    android:singleLine="true"
+	    android:inputType="text"
+	    android:hint="@string/playlist_name"
+	    android:textColor="@android:color/white" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Genres:"        
+        android:textSize="@dimen/caption"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp" />
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <CheckBox
+            android:id="@+id/add_edit_check_classic"
+            android:text="Classic"                        		
+			android:layout_height="40dp"
+			android:layout_width="0dp"
+			android:layout_weight=".50"
+			android:checked="true"
+			android:textColor="@android:color/white" />
+        
+        <CheckBox
+            android:id="@+id/add_edit_check_electronic"
+            android:text="Electronic"                               
+			android:layout_height="40dp"
+			android:layout_width="0dp"
+			android:layout_weight=".50"
+			android:checked="true"
+			android:textColor="@android:color/white" />
+        
+    </LinearLayout>
+	<LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+         <CheckBox
+            android:id="@+id/add_edit_check_rap"
+            android:text="Rap"                        	
+			android:layout_height="40dp"
+			android:layout_width="0dp"
+			android:layout_weight=".50"
+			android:checked="true"
+			android:textColor="@android:color/white" />
+        
+        <CheckBox
+            android:id="@+id/add_edit_check_hiphop"
+            android:text="Hip-Hop"                                    	
+			android:layout_height="40dp"
+			android:layout_width="0dp"
+			android:layout_weight=".50"
+			android:checked="true"
+			android:textColor="@android:color/white" />
+         
+    </LinearLayout>
+    
+	<RadioGroup
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:layout_marginTop="25dp"
+		android:checkedButton="@+id/radio_all" >		
+            
+		<RadioButton 		    
+		    android:id="@+id/add_edit_radio_loud"
+			android:text="Loud"
+			android:layout_height="40dp"
+			android:layout_width="0dp"
+			android:layout_weight=".33"
+			android:textSize="@dimen/big_text"        
+        	android:textStyle="bold"
+			android:textColor="@android:color/white" />
+		<RadioButton 		    
+		    android:id="@+id/add_edit_radio_quiet"
+			android:text="Quiet"
+			android:layout_height="40dp"
+			android:layout_width="0dp"
+			android:layout_weight=".33"
+			android:textSize="@dimen/big_text"        
+        	android:textStyle="bold"
+			android:textColor="@android:color/white" />
+		<RadioButton 		    
+		    android:id="@+id/add_edit_radio_all"
+			android:text="All"
+			android:layout_height="40dp"
+			android:layout_width="0dp"
+			android:layout_weight=".33"
+			android:textSize="@dimen/big_text"        
+        	android:textStyle="bold"
+			android:textColor="@android:color/white" />
+					             	
+    </RadioGroup>
+    
+	<RelativeLayout 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="25dp" >
+		
+		<Button 
+		    android:id="@+id/savePlaylist"
+		    android:layout_centerHorizontal="true"
+	        android:layout_width="120dp"
+	        android:layout_height="40dp" 
+	        android:text="Save"
+	        android:textStyle="bold"
+	        android:textSize="@dimen/big_text" />
+	    
+	</RelativeLayout>	
+
+</LinearLayout>

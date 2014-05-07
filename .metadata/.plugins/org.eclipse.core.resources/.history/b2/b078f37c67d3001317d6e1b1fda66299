@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="2dip" 
+    android:background="@android:color/black">
+
+   <RelativeLayout
+        android:id="@+id/playlists_row"
+	    android:layout_width="fill_parent"
+	    android:layout_height="?android:attr/listPreferredItemHeight"
+	    android:background="@android:color/black"
+	    android:padding="3dp">
+	    
+	    <TextView
+	        android:id="@+id/playlists_row_name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toLeftOf="@+id/playlists_row_edit"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignWithParentIfMissing="true"
+	        android:layout_centerInParent="true"
+	        android:gravity="center_vertical"
+	        android:textSize="@dimen/big_text"
+	        android:textColor="@android:color/white"
+	        android:scrollHorizontally="true"
+	        android:singleLine="true"
+	        android:ellipsize="marquee"
+	        android:marqueeRepeatLimit="marquee_forever"
+		    android:focusable="true"
+		    android:focusableInTouchMode="true" />
+	
+	     <ImageView
+	        android:id="@+id/playlists_row_edit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginRight="6dip"
+	        android:layout_toLeftOf="@+id/playlists_row_share"
+	        android:contentDescription="Edit this playlist"
+	        android:src="@android:drawable/ic_menu_edit"
+	        android:background="@android:color/black" />
+	
+	     <ImageView
+	        android:id="@+id/playlists_row_share"
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginRight="6dip"
+	        android:layout_toLeftOf="@+id/playlists_row_delete"
+	        android:contentDescription="Share playlist"
+	        android:src="@android:drawable/ic_menu_share"
+	        android:background="@android:color/black" />
+	
+	     <ImageView
+	        android:id="@+id/playlists_row_delete"
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="6dip"
+	        android:contentDescription="Edit this playlist"
+	        android:src="@android:drawable/ic_menu_delete"
+	        android:background="@android:color/black" />
+    </RelativeLayout>
+    
+</RelativeLayout> 

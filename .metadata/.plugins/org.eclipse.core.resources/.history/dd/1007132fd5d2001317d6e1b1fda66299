@@ -1,0 +1,114 @@
+package com.example.awesomeplaylists;
+
+import android.app.ListActivity;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+
+public class LibraryActivity2 extends ListActivity {
+	
+	private static GenericSongClass[] songs = {};
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_library2);
+		
+		LoadSongsFromCard();
+		
+		LibrarySongsArrayAdapter adapter = 
+				new LibrarySongsArrayAdapter(this, songs);
+	    setListAdapter(adapter);
+	    
+	    ListView list = (ListView) findViewById(R.id.listView);
+	    list.setOnItemClickListener(showGenres);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.library_activity2, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	private void showGenres(View view) {
+		RelativeLayout firstParent = (RelativeLayout) view.getParent();
+		RelativeLayout secondParent = (RelativeLayout) firstParent.getParent();
+		
+		LinearLayout libraryGenres = (LinearLayout) secondParent.getChildAt(1);
+		
+		if (libraryGenres.getVisibility() == LinearLayout.VISIBLE) {
+			libraryGenres.setVisibility(LinearLayout.GONE);
+		} else {
+			libraryGenres.setVisibility(LinearLayout.VISIBLE);
+		}
+	}
+	
+	private void LoadSongsFromCard() {		
+        /** Making custom drawable */
+        String selection = MediaStore.Audio.Media.IS_MUSIC + " != 0";
+        /* AND " 
+        		+ MediaStore.Audio.Media.MIME_TYPE + "= 'audio/mpeg3' AND "
+        		+ MediaStore.Audio.Media.DURATION + " > 60000";*/
+        final String[] projection = new String[] {
+            MediaStore.Audio.Media.DISPLAY_NAME,
+            MediaStore.Audio.Media.ARTIST
+        };
+        
+        final String sortOrder = MediaStore.Audio.AudioColumns.TITLE
+                + " COLLATE LOCALIZED ASC";
+
+        Cursor cursor = null;
+        
+        try {
+            // the uri of the table that we want to query
+            Uri uri = MediaStore.Audio.Media.getContentUriForPath("");
+            // query the db
+            cursor = getBaseContext().getContentResolver().query(uri,
+                    projection, selection, null, sortOrder);
+            if (cursor != null) {
+                songs = new GenericSongClass[cursor.getCount()];
+                int i = 0;
+                cursor.moveToFirst();                       
+                while (!cursor.isAfterLast()) { 
+                	GenericSongClass GSC = new GenericSongClass();
+                    GSC.songTitle = cursor.getString(0);
+                    GSC.songArtist = cursor.getString(1);
+                    songs[i++] = GSC;
+                    cursor.moveToNext();
+                }
+            }
+        } catch (Exception ex) {
+
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+	
+	public class GenericSongClass {
+        String songTitle = "";
+        String songArtist = "";
+	}
+}

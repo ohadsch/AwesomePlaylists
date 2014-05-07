@@ -1,0 +1,203 @@
+package com.example.awesomeplaylists;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class PlaylistsActivity extends Activity {
+
+	public ArrayList<GenericPlaylistClass> UserPlaylists = 
+			new ArrayList<GenericPlaylistClass>();
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_playlists);
+		
+		LoadDummyPlaylists();
+		LoadPlaylistsToListView();
+		//LoadPlaylistsToView();
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+
+		// Inflate the menu; this adds items to the action bar if it is present.    
+		getMenuInflater().inflate(R.menu.first, menu); 
+		return true;  
+	}  
+    
+	@Override 
+	public boolean onOptionsItemSelected(MenuItem item) {  
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId(); 
+		if (id == R.id.action_settings) { 
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	private void LoadDummyPlaylists() {
+		UserPlaylists.add(
+				new GenericPlaylistClass("Running in gym", false, true, false, 
+						true, 1));
+		UserPlaylists.add(
+				new GenericPlaylistClass("Riding a bus", false, false, true, 
+						true, 2));
+		UserPlaylists.add(
+				new GenericPlaylistClass("Driving", true, true, false, 
+						false, 0));
+		UserPlaylists.add(
+				new GenericPlaylistClass("Studying...", true, false, false, 
+						false, 1));
+	}
+	
+	private void LoadPlaylistsToListView() {
+		ListView listView = (ListView) findViewById(R.id.listView);
+		Adapter adapter = new Adapter();
+	}
+	
+	private void LoadPlaylistsToView() {
+		LinearLayout mainLayout = 
+				(LinearLayout)findViewById(R.id.playlists_main_layout);
+
+		for (int i = 0 ; i < UserPlaylists.size() ; i++) {
+			/* A layout wrapping all views related to a single playlist */
+			LinearLayout newPlaylistRepresent = new LinearLayout(this);
+			LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, 
+												   LayoutParams.WRAP_CONTENT);
+			newPlaylistRepresent.setLayoutParams(params);
+			newPlaylistRepresent.setOrientation(LinearLayout.VERTICAL);
+			newPlaylistRepresent.setId(i);
+			
+			/* A layout containing the playlist name and edit/share/delete icons */
+			LinearLayout newHorizontalLayout = new LinearLayout(this);
+			params = new LayoutParams(LayoutParams.WRAP_CONTENT, 
+									  LayoutParams.WRAP_CONTENT);
+			newHorizontalLayout.setLayoutParams(params);
+			newHorizontalLayout.setOrientation(LinearLayout.HORIZONTAL);
+			
+			/* Playlist name */
+			TextView newPlaylistName = new TextView(this);
+			params = new LayoutParams(LayoutParams.WRAP_CONTENT,//500, 
+									  LayoutParams.WRAP_CONTENT, 0.5f);
+			params.topMargin = 12;
+			newPlaylistName.setLayoutParams(params);
+			newPlaylistName.setText(
+					((GenericPlaylistClass)UserPlaylists.get(i)).playlistName);
+			newPlaylistName.setTextColor(Color.WHITE);
+			newHorizontalLayout.addView(newPlaylistName);
+			
+			LinearLayout newButtonsLayout = new LinearLayout(this);
+			params = new LayoutParams(LayoutParams.WRAP_CONTENT, 
+									  LayoutParams.WRAP_CONTENT, 0.5f);
+			newButtonsLayout.setLayoutParams(params);
+			newButtonsLayout.setOrientation(LinearLayout.HORIZONTAL);
+			
+			/* Edit button */
+			ImageButton newEditPlaylist = new ImageButton(this);
+			params = new LayoutParams(LayoutParams.WRAP_CONTENT, 
+									  LayoutParams.WRAP_CONTENT);
+			newEditPlaylist.setLayoutParams(params);
+			newEditPlaylist.setImageResource(android.R.drawable.ic_menu_edit);
+			newEditPlaylist.setBackgroundColor(Color.BLACK);
+			newEditPlaylist.setTag(i);
+			newEditPlaylist.setOnClickListener(new ImageButton.OnClickListener() {  
+		        public void onClick(View v)
+	            {
+	                LinearLayout currSongLayout = 
+	                		(LinearLayout)findViewById((Integer)v.getTag());
+	                LinearLayout mainLayout = 
+	                		(LinearLayout)findViewById(R.id.playlists_main_layout);
+	                mainLayout.removeView(currSongLayout);
+	            }
+	         });
+			newButtonsLayout.addView(newEditPlaylist);
+			
+			/* Share button */
+			ImageButton newSharePlaylist = new ImageButton(this);
+			params = new LayoutParams(LayoutParams.WRAP_CONTENT, 
+									  LayoutParams.WRAP_CONTENT);
+			newSharePlaylist.setLayoutParams(params);
+			newSharePlaylist.setImageResource(android.R.drawable.ic_menu_share);
+			newSharePlaylist.setBackgroundColor(Color.BLACK);
+			newSharePlaylist.setTag(i);
+			newSharePlaylist.setOnClickListener(new ImageButton.OnClickListener() {  
+		        public void onClick(View v)
+	            {
+	                LinearLayout currSongLayout = 
+	                		(LinearLayout)findViewById((Integer)v.getTag());
+	                LinearLayout mainLayout = 
+	                		(LinearLayout)findViewById(R.id.playlists_main_layout);
+	                mainLayout.removeView(currSongLayout);
+	            }
+	         });
+			newButtonsLayout.addView(newSharePlaylist);
+			
+			/* Delete button */
+			ImageButton newDeletePlaylist = new ImageButton(this);
+			params = new LayoutParams(LayoutParams.WRAP_CONTENT, 
+									  LayoutParams.WRAP_CONTENT);
+			newDeletePlaylist.setLayoutParams(params);
+			newDeletePlaylist.setImageResource(android.R.drawable.ic_menu_delete);
+			newDeletePlaylist.setBackgroundColor(Color.BLACK);
+			newDeletePlaylist.setTag(i);
+			newDeletePlaylist.setOnClickListener(new ImageButton.OnClickListener() {  
+		        public void onClick(View v)
+	            {
+	                LinearLayout currSongLayout = 
+	                		(LinearLayout)findViewById((Integer)v.getTag());
+	                LinearLayout mainLayout = 
+	                		(LinearLayout)findViewById(R.id.playlists_main_layout);
+	                mainLayout.removeView(currSongLayout);
+	            }
+	         });
+			newButtonsLayout.addView(newDeletePlaylist);
+			
+			newHorizontalLayout.addView(newButtonsLayout);
+			
+			newPlaylistRepresent.addView(newHorizontalLayout);
+			
+			View newLineView = new View(this);
+			params = new LayoutParams(LayoutParams.WRAP_CONTENT, 1);
+			newLineView.setLayoutParams(params);
+			newLineView.setBackgroundColor(Color.GRAY);
+			newPlaylistRepresent.addView(newLineView);
+			
+			mainLayout.addView(newPlaylistRepresent);
+		}
+	}
+	
+	private class GenericPlaylistClass {
+		String playlistName;
+		Boolean isClassic;
+		Boolean isElectronic;
+		Boolean isRap;
+		Boolean isHiphop;
+		int loudness = 2; // 0 = quiet, 1 = low, 2 = both
+		
+		public GenericPlaylistClass(String playlistName, Boolean isClassic,
+							   Boolean isElectronic, Boolean isRap,
+							   Boolean isHiphop, int loudness) {
+			this.playlistName = playlistName;
+			this.isClassic = isClassic;
+			this.isElectronic = isElectronic;
+			this.isRap = isRap;
+			this.isHiphop = isHiphop;
+			this.loudness = loudness;
+		}
+	}
+}

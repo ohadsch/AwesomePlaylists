@@ -1,2 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.LibraryActivity.genericSongClass"/>
+<fullyQualifiedTypeName name="android.provider.MediaStore.Audio"/>
+<fullyQualifiedTypeName name="android.provider.MediaStore.Audio.Media"/>
+<fullyQualifiedTypeName name="android.widget.TextView"/>
+<fullyQualifiedTypeName name="android.graphics.Color"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.R.dimen"/>
+<fullyQualifiedTypeName name="android.widget.ImageButton"/>
+<fullyQualifiedTypeName name="android.app.ActionBar.LayoutParams"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.R.drawable"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.PlaylistsActivity"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.PlayItActivity"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.SettingsActivity"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.PlaylistsActivity.GenericPlaylist"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.R.string"/>
+<fullyQualifiedTypeName name="android.widget.LinearLayout.LayoutParams"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout.LayoutParams"/>
+<fullyQualifiedTypeName name="android.widget.Adapter"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.R.layout"/>
+<fullyQualifiedTypeName name="android.R.drawable"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.LibrarySongsArrayAdapter"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.LibraryActivity2.GenericSongClass"/>
+<fullyQualifiedTypeName name="android.provider.MediaStore"/>
+<fullyQualifiedTypeName name="android.widget.LinearLayout"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.R.id"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
+<fullyQualifiedTypeName name="android.view.TouchDelegate"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.PlaylistArrayAdapter"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.PlaylistsActivity.GenericPlaylistClass"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.AddEditPlaylistActivity"/>
+<fullyQualifiedTypeName name="com.example.awesomeplaylists.R.id"/>
+</qualifiedTypeNameHistroy>
